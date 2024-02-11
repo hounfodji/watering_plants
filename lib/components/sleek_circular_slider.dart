@@ -30,10 +30,14 @@ class MySleekCircularSlider extends StatefulWidget {
 
 class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
   double _value = 0.0;
+  double _min = 0.0;
+  double _max = 0.0;
   @override
   void initState() {
     super.initState();
     _value = widget.initialValue;
+    _min = widget.min;
+    _max = widget.max;
   }
 
   @override
@@ -50,6 +54,7 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
         ),
         infoProperties: InfoProperties(
           topLabelText: widget.topLabelText,
+          
         ),
       ),
       initialValue: _value,
@@ -59,6 +64,8 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
           widget.onChange(value); // Notify caller of value change
         });
       },
+      // min: _min,
+      // max: _max,
     );
   }
 }

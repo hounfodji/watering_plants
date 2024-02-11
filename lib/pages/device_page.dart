@@ -20,72 +20,156 @@ class _DevicePageState extends State<DevicePage> {
     Device(
         name: "Salmon",
         zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // tuna
     Device(
         name: "Tuna",
         zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // salmon
     Device(
         name: "Salmon",
         zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // tuna
     Device(
         name: "Tuna",
         zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // salmon
     Device(
         name: "Salmon",
         zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // tuna
     Device(
         name: "Tuna",
         zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // salmon
     Device(
         name: "Salmon",
         zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // tuna
     Device(
         name: "Tuna",
         zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // salmon
     Device(
         name: "Salmon",
         zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // tuna
     Device(
         name: "Tuna",
         zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // salmon
     Device(
         name: "Salmon",
         zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // tuna
     Device(
         name: "Tuna",
         zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // salmon
     Device(
         name: "Salmon",
         zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
     // tuna
     Device(
         name: "Tuna",
         zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png"),
+        imagePath: "lib/images/home/watering-plants(2).png",
+        barometricPressure: 70.0,
+        temperature: 37.0,
+        humidity: 60.0,
+        tvoc: 87,
+        co2: 25    
+    ),
   ];
 
 
