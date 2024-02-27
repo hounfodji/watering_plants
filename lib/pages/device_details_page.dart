@@ -51,9 +51,13 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
     });
   }
 
-  void viewSchedule() {}
+  void viewSchedule() {
+    Navigator.pushNamed(context, "/schedulepage");
+  }
 
-  void viewHistory() {}
+  void viewHistory() {
+    Navigator.pushNamed(context, "/historypage");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,183 +70,237 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // device's status
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // container for details
+          Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Text(
-                  "On/Off device",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[800],
-                      fontSize: 18),
+              // device's status
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: Text(
+                      "On/Off device",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[800],
+                          fontSize: 18),
+                    ),
+                  ),
+
+                  //On/Off
+                  MySwitch()
+                ],
+              ),
+
+              const SizedBox(
+                height: 25,
+              ),
+              // barometric pressure and teperature container
+              Container(
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 25,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // device name
+                        Text("Barometric Pressure"),
+
+                        const SizedBox(
+                          height: 10,
+                        ),
+
+                        // device zone
+
+                        MySleekCircularSlider(
+                          min: 142.0,
+                          max: 1017.0,
+                          initialValue: widget.device.barometricPressure,
+                          unit: widget.device.unite["barometricPressure"]!,
+                          trackColor: Colors.grey,
+                          progressBarColors: [primaryColor, secondaryColor],
+                          // topLabelText: 'running...',
+                          onChange: _onBarometricPressureChange,
+                        ),
+
+                        Container(
+                          width: 120,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [Text("142"), Text("1017")],
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // device name
+                        Text("Temperature"),
+
+                        const SizedBox(
+                          height: 10,
+                        ),
+
+                        // device zone
+                        MySleekCircularSlider(
+                          min: 0.0,
+                          max: 40.0,
+                          initialValue: widget.device.temperature,
+                          unit: widget.device.unite["temperature"]!,
+                          trackColor: Colors.grey,
+                          progressBarColors: [primaryColor, secondaryColor],
+                          // topLabelText: 'running...',
+                          onChange: _onTemperatureChange,
+                        ),
+
+                        Container(
+                          width: 120,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [Text("0"), Text("40")],
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
                 ),
               ),
 
-              //On/Off
-              MySwitch()
+              const SizedBox(
+                height: 25,
+              ),
+
+              // humidity and co2 container
+              Container(
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 25,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // device name
+                        Text("Humidity"),
+
+                        const SizedBox(
+                          height: 10,
+                        ),
+
+                        // device zone
+
+                        MySleekCircularSlider(
+                          min: 0.0,
+                          max: 100.0,
+                          initialValue: widget.device.humidity,
+                          unit: widget.device.unite["humidity"]!,
+                          trackColor: Colors.grey,
+                          progressBarColors: [primaryColor, secondaryColor],
+                          // topLabelText: 'running...',
+                          onChange: _onHumidityChange,
+                        ),
+
+                        Container(
+                          width: 120,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [Text("0"), Text("100")],
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // device name
+                        Text("CO2"),
+
+                        const SizedBox(
+                          height: 10,
+                        ),
+
+                        // device zone
+                        MySleekCircularSlider(
+                          min: 812.0,
+                          max: 2200.0,
+                          initialValue: widget.device.co2,
+                          unit: widget.device.unite["co2"]!,
+                          trackColor: Colors.grey,
+                          progressBarColors: [primaryColor, secondaryColor],
+                          // topLabelText: 'running...',
+                          onChange: _onCo2Change,
+                        ),
+
+                        Container(
+                          width: 120,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [Text("0"), Text("100")],
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(
+                height: 25,
+              ),
+              // tvoc container
+              Center(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 25,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // device name
+                      Text("TVOC"),
+
+                      const SizedBox(
+                        height: 10,
+                      ),
+
+                      // device zone
+                      MySleekCircularSlider(
+                        min: 405,
+                        max: 1340.0,
+                        initialValue: widget.device.tvoc,
+                        unit: widget.device.unite["tvoc"]!,
+                        trackColor: Colors.grey,
+                        progressBarColors: [primaryColor, secondaryColor],
+                        // topLabelText: 'running...',
+                        onChange: _onTvocChange,
+                      ),
+
+                      Container(
+                        width: 120,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [Text("405"), Text("1340")],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
-          ),
-
-          const SizedBox(
-            height: 25,
-          ),
-          // barometric pressure and teperature container
-
-          Container(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 25,
-            ),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // device name
-                    Text("Barometric Pressure"),
-
-                    const SizedBox(
-                      height: 10,
-                    ),
-
-                    // device zone
-                    MySleekCircularSlider(
-                      min: 0.0,
-                      max: 100.0,
-                      initialValue: widget.device.barometricPressure,
-                      trackColor: Colors.grey,
-                      progressBarColors: [primaryColor, secondaryColor],
-                      topLabelText: 'running...',
-                      onChange: _onBarometricPressureChange,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // device name
-                    Text("Temperature"),
-
-                    const SizedBox(
-                      height: 10,
-                    ),
-
-                    // device zone
-                    MySleekCircularSlider(
-                      min: 0.0,
-                      max: 50.0,
-                      initialValue: widget.device.temperature,
-                      trackColor: Colors.grey,
-                      progressBarColors: [primaryColor, secondaryColor],
-                      topLabelText: 'running...',
-                      onChange: _onTemperatureChange,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-          const SizedBox(
-            height: 15,
-          ),
-
-          // humidity and co2 container
-          Container(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 25,
-            ),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // device name
-                    Text("Humidity"),
-
-                    const SizedBox(
-                      height: 10,
-                    ),
-
-                    // device zone
-                    MySleekCircularSlider(
-                      min: 0.0,
-                      max: 100.0,
-                      initialValue: widget.device.humidity,
-                      trackColor: Colors.grey,
-                      progressBarColors: [primaryColor, secondaryColor],
-                      topLabelText: 'running...',
-                      onChange: _onHumidityChange,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // device name
-                    Text("CO2"),
-
-                    const SizedBox(
-                      height: 10,
-                    ),
-
-                    // device zone
-                    MySleekCircularSlider(
-                      min: 0.0,
-                      max: 50.0,
-                      initialValue: widget.device.co2,
-                      trackColor: Colors.grey,
-                      progressBarColors: [primaryColor, secondaryColor],
-                      topLabelText: 'running...',
-                      onChange: _onCo2Change,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-          // tvoc features
-          // humidity and co2 container
-          Container(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 100,
-            ),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // device name
-                    Text("TVOC"),
-
-                    const SizedBox(
-                      height: 10,
-                    ),
-
-                    // device zone
-                    MySleekCircularSlider(
-                      min: 0.0,
-                      max: 100.0,
-                      initialValue: widget.device.tvoc,
-                      trackColor: Colors.grey,
-                      progressBarColors: [primaryColor,secondaryColor ],
-                      topLabelText: 'running...',
-                      onChange: _onTvocChange,
-                    ),
-                  ],
-                ),
-              ],
-            ),
           ),
 
           // buttons for view schedule and history

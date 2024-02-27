@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:watering_plants/components/button.dart';
 import 'package:watering_plants/components/device_tile.dart';
 import 'package:watering_plants/models/device.dart';
+import 'package:watering_plants/models/device_list.dart';
 import 'package:watering_plants/pages/device_details_page.dart';
 import 'package:watering_plants/theme/colors.dart';
 
@@ -14,163 +15,179 @@ class DevicePage extends StatefulWidget {
 }
 
 class _DevicePageState extends State<DevicePage> {
+
+ // Use current date and time
   // food menu
-  List deviceList = [
-    // salmon
-    Device(
-        name: "Salmon",
-        zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // tuna
-    Device(
-        name: "Tuna",
-        zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // salmon
-    Device(
-        name: "Salmon",
-        zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // tuna
-    Device(
-        name: "Tuna",
-        zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // salmon
-    Device(
-        name: "Salmon",
-        zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // tuna
-    Device(
-        name: "Tuna",
-        zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // salmon
-    Device(
-        name: "Salmon",
-        zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // tuna
-    Device(
-        name: "Tuna",
-        zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // salmon
-    Device(
-        name: "Salmon",
-        zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // tuna
-    Device(
-        name: "Tuna",
-        zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // salmon
-    Device(
-        name: "Salmon",
-        zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // tuna
-    Device(
-        name: "Tuna",
-        zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // salmon
-    Device(
-        name: "Salmon",
-        zone: "Zone A",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-    // tuna
-    Device(
-        name: "Tuna",
-        zone: "Zone B",
-        imagePath: "lib/images/home/watering-plants(2).png",
-        barometricPressure: 70.0,
-        temperature: 37.0,
-        humidity: 60.0,
-        tvoc: 87,
-        co2: 25    
-    ),
-  ];
+  // List deviceList = [
+  //   // salmon
+  //   Device(
+  //       name: "Salmon",
+  //       zone: "Zone A",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // tuna
+  //   Device(
+  //       name: "Tuna",
+  //       zone: "Zone B",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // salmon
+  //   Device(
+  //       name: "Salmon",
+  //       zone: "Zone A",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // tuna
+  //   Device(
+  //       name: "Tuna",
+  //       zone: "Zone B",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // salmon
+  //   Device(
+  //       name: "Salmon",
+  //       zone: "Zone A",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // tuna
+  //   Device(
+  //       name: "Tuna",
+  //       zone: "Zone B",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // salmon
+  //   Device(
+  //       name: "Salmon",
+  //       zone: "Zone A",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // tuna
+  //   Device(
+  //       name: "Tuna",
+  //       zone: "Zone B",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // salmon
+  //   Device(
+  //       name: "Salmon",
+  //       zone: "Zone A",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // tuna
+  //   Device(
+  //       name: "Tuna",
+  //       zone: "Zone B",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // salmon
+  //   Device(
+  //       name: "Salmon",
+  //       zone: "Zone A",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // tuna
+  //   Device(
+  //       name: "Tuna",
+  //       zone: "Zone B",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // salmon
+  //   Device(
+  //       name: "Salmon",
+  //       zone: "Zone A",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  //   // tuna
+  //   Device(
+  //       name: "Tuna",
+  //       zone: "Zone B",
+  //       imagePath: "lib/images/home/watering-plants(2).png",
+  //       date: DateTime.now(),
+  //       barometricPressure: 70.0,
+  //       temperature: 37.0,
+  //       humidity: 60.0,
+  //       tvoc: 87,
+  //       co2: 25    
+  //   ),
+  // ];
 
 
   // navigate to device details page

@@ -10,6 +10,7 @@ class MySleekCircularSlider extends StatefulWidget {
   final List<Color> progressBarColors;
   final double shadowMaxOpacity;
   final String topLabelText;
+  final String unit;
   final void Function(double value) onChange;
 
   const MySleekCircularSlider({
@@ -17,6 +18,7 @@ class MySleekCircularSlider extends StatefulWidget {
     required this.min,
     required this.max,
     required this.initialValue,
+    required this.unit,
     this.trackColor = Colors.grey,
     this.progressBarColors = const [Colors.cyan, Colors.cyan],
     this.shadowMaxOpacity = 50.0,
@@ -32,18 +34,21 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
   double _value = 0.0;
   double _min = 0.0;
   double _max = 0.0;
+  String _unit = "";
   @override
   void initState() {
     super.initState();
     _value = widget.initialValue;
     _min = widget.min;
     _max = widget.max;
+    _unit = widget.unit;
   }
 
   @override
   Widget build(BuildContext context) {
     return SleekCircularSlider(
       appearance: CircularSliderAppearance(
+        size: 120,
         customWidths: CustomSliderWidths(
           progressBarWidth: 5,
         ),
@@ -55,6 +60,11 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
         infoProperties: InfoProperties(
           topLabelText: widget.topLabelText,
           
+          modifier: (double value) {
+
+            final temp = value.toInt();
+            return '$temp $_unit';
+          },
         ),
       ),
       initialValue: _value,

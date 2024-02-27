@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:watering_plants/pages/device_page.dart';
+import 'package:watering_plants/pages/history_page.dart';
 import 'package:watering_plants/pages/intro_page.dart';
+import 'package:watering_plants/pages/schedule_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +19,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/intropage' : (context) => const IntroPage(),
         '/devicepage' : (context) => const DevicePage(),
+        '/schedulepage' : (context) => const SchedulePage(),
+        '/historypage' : (context) => const HistoryPage(),
       },
     );
   }
