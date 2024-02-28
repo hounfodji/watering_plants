@@ -74,8 +74,8 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
           widget.onChange(value); // Notify caller of value change
         });
       },
-      // min: _min,
-      // max: _max,
+      min: _min,
+      max: _max,
     );
   }
 }

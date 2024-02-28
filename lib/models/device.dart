@@ -11,6 +11,7 @@ class Device {
   double co2;
   double tvoc;
   final Map<String, String> unite; // les unités de mesure
+  final Map<String, List<int>> minMaxValue; //for min max value
 
   Device({
     required this.name,
@@ -24,7 +25,9 @@ class Device {
     required this.tvoc,
 
     Map<String, String>? unite,
-  }): unite = unite ?? {};
+    Map<String, List<int>>? minMaxValue,
+  }): unite = unite ?? {},
+      minMaxValue = minMaxValue ?? {};
 
   String get _name => name;
   String get _zone => zone;

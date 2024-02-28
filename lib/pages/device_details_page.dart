@@ -110,7 +110,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // device name
-                        Text("Barometric Pressure"),
+                        Text("Barometric Pressure", style: TextStyle(fontWeight: FontWeight.bold),),
 
                         const SizedBox(
                           height: 10,
@@ -119,12 +119,16 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                         // device zone
 
                         MySleekCircularSlider(
-                          min: 142.0,
-                          max: 1017.0,
+                          min: widget
+                              .device.minMaxValue["barometricPressure"]![0]
+                              .toDouble(),
+                          max: widget
+                              .device.minMaxValue["barometricPressure"]![1]
+                              .toDouble(),
                           initialValue: widget.device.barometricPressure,
                           unit: widget.device.unite["barometricPressure"]!,
                           trackColor: Colors.grey,
-                          progressBarColors: [primaryColor, secondaryColor],
+                          progressBarColors: [Color.fromARGB(255, 97, 190, 61), Color.fromARGB(255, 5, 235, 77)],
                           // topLabelText: 'running...',
                           onChange: _onBarometricPressureChange,
                         ),
@@ -133,7 +137,14 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [Text("142"), Text("1017")],
+                            children: [
+                              Text(widget
+                                  .device.minMaxValue["barometricPressure"]![0]
+                                  .toString()),
+                              Text(widget
+                                  .device.minMaxValue["barometricPressure"]![1]
+                                  .toString())
+                            ],
                           ),
                         )
                       ],
@@ -145,7 +156,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // device name
-                        Text("Temperature"),
+                        Text("Temperature", style: TextStyle(fontWeight: FontWeight.bold),),
 
                         const SizedBox(
                           height: 10,
@@ -153,12 +164,14 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
 
                         // device zone
                         MySleekCircularSlider(
-                          min: 0.0,
-                          max: 40.0,
+                          min: widget.device.minMaxValue["temperature"]![0]
+                              .toDouble(),
+                          max: widget.device.minMaxValue["temperature"]![1]
+                              .toDouble(),
                           initialValue: widget.device.temperature,
                           unit: widget.device.unite["temperature"]!,
                           trackColor: Colors.grey,
-                          progressBarColors: [primaryColor, secondaryColor],
+                          progressBarColors: [Color.fromARGB(255, 221, 218, 163), Color.fromARGB(255, 236, 232, 163)],
                           // topLabelText: 'running...',
                           onChange: _onTemperatureChange,
                         ),
@@ -167,7 +180,12 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [Text("0"), Text("40")],
+                            children: [
+                              Text(widget.device.minMaxValue["temperature"]![0]
+                                  .toString()),
+                              Text(widget.device.minMaxValue["temperature"]![1]
+                                  .toString())
+                            ],
                           ),
                         )
                       ],
@@ -192,7 +210,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // device name
-                        Text("Humidity"),
+                        Text("Humidity", style: TextStyle(fontWeight: FontWeight.bold),),
 
                         const SizedBox(
                           height: 10,
@@ -201,12 +219,14 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                         // device zone
 
                         MySleekCircularSlider(
-                          min: 0.0,
-                          max: 100.0,
+                          min: widget.device.minMaxValue["humidity"]![0]
+                              .toDouble(),
+                          max: widget.device.minMaxValue["humidity"]![1]
+                              .toDouble(),
                           initialValue: widget.device.humidity,
                           unit: widget.device.unite["humidity"]!,
                           trackColor: Colors.grey,
-                          progressBarColors: [primaryColor, secondaryColor],
+                          progressBarColors: [const Color.fromARGB(255, 104, 178, 238), Color.fromARGB(255, 63, 161, 242)],
                           // topLabelText: 'running...',
                           onChange: _onHumidityChange,
                         ),
@@ -215,7 +235,12 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [Text("0"), Text("100")],
+                            children: [
+                              Text(widget.device.minMaxValue["humidity"]![0]
+                                  .toString()),
+                              Text(widget.device.minMaxValue["humidity"]![1]
+                                  .toString())
+                            ],
                           ),
                         )
                       ],
@@ -227,7 +252,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // device name
-                        Text("CO2"),
+                        Text("CO2", style: TextStyle(fontWeight: FontWeight.bold),),
 
                         const SizedBox(
                           height: 10,
@@ -235,12 +260,12 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
 
                         // device zone
                         MySleekCircularSlider(
-                          min: 812.0,
-                          max: 2200.0,
+                          min: widget.device.minMaxValue["co2"]![0].toDouble(),
+                          max: widget.device.minMaxValue["co2"]![1].toDouble(),
                           initialValue: widget.device.co2,
                           unit: widget.device.unite["co2"]!,
                           trackColor: Colors.grey,
-                          progressBarColors: [primaryColor, secondaryColor],
+                          progressBarColors: [Color.fromARGB(255, 246, 229, 79), Color.fromARGB(255, 248, 228, 49)],
                           // topLabelText: 'running...',
                           onChange: _onCo2Change,
                         ),
@@ -249,7 +274,12 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [Text("0"), Text("100")],
+                            children: [
+                              Text(widget.device.minMaxValue["co2"]![0]
+                                  .toString()),
+                              Text(widget.device.minMaxValue["co2"]![1]
+                                  .toString())
+                            ],
                           ),
                         )
                       ],
@@ -271,7 +301,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       // device name
-                      Text("TVOC"),
+                      Text("TVOC", style: TextStyle(fontWeight: FontWeight.bold),),
 
                       const SizedBox(
                         height: 10,
@@ -279,12 +309,12 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
 
                       // device zone
                       MySleekCircularSlider(
-                        min: 405,
-                        max: 1340.0,
+                        min: widget.device.minMaxValue["tvoc"]![0].toDouble(),
+                        max: widget.device.minMaxValue["tvoc"]![1].toDouble(),
                         initialValue: widget.device.tvoc,
                         unit: widget.device.unite["tvoc"]!,
                         trackColor: Colors.grey,
-                        progressBarColors: [primaryColor, secondaryColor],
+                        progressBarColors: [const Color.fromARGB(255, 198, 95, 88), Color.fromARGB(255, 193, 83, 75)],
                         // topLabelText: 'running...',
                         onChange: _onTvocChange,
                       ),
@@ -293,7 +323,12 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                         width: 120,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text("405"), Text("1340")],
+                          children: [
+                            Text(widget.device.minMaxValue["tvoc"]![0]
+                                .toString()),
+                            Text(widget.device.minMaxValue["tvoc"]![1]
+                                .toString())
+                          ],
                         ),
                       )
                     ],
