@@ -38,6 +38,8 @@ dependencies:
   google_fonts:
   sleek_circular_slider: ^2.0.1
   intl: ^0.19.0
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
 
 dev_dependencies:
   flutter_test:

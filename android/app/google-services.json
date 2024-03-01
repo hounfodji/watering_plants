@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "485449394301",
+    "project_id": "watering-plants-70f63",
+    "storage_bucket": "watering-plants-70f63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485449394301:android:1619a81225df4515446914",
+        "android_client_info": {
+          "package_name": "com.example.watering_plants"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvpBKZ7EIS83TeuFOJp1kQmqQ0lOLoM6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

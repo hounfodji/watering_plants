@@ -60,7 +60,7 @@ List deviceList = [
         'humidity': [0, 100],
         'tvoc': [405, 1340],
         'co2': [812, 2200],
-      },    
+      }, 
     ),
     // tuna
     Device(

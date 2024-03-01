@@ -4,6 +4,7 @@ import 'package:watering_plants/components/button.dart';
 import 'package:watering_plants/components/device_tile.dart';
 import 'package:watering_plants/models/device.dart';
 import 'package:watering_plants/models/device_list.dart';
+import 'package:watering_plants/pages/add_device.dart';
 import 'package:watering_plants/pages/device_details_page.dart';
 import 'package:watering_plants/theme/colors.dart';
 
@@ -16,191 +17,27 @@ class DevicePage extends StatefulWidget {
 
 class _DevicePageState extends State<DevicePage> {
 
- // Use current date and time
-  // food menu
-  // List deviceList = [
-  //   // salmon
-  //   Device(
-  //       name: "Salmon",
-  //       zone: "Zone A",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // tuna
-  //   Device(
-  //       name: "Tuna",
-  //       zone: "Zone B",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // salmon
-  //   Device(
-  //       name: "Salmon",
-  //       zone: "Zone A",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // tuna
-  //   Device(
-  //       name: "Tuna",
-  //       zone: "Zone B",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // salmon
-  //   Device(
-  //       name: "Salmon",
-  //       zone: "Zone A",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // tuna
-  //   Device(
-  //       name: "Tuna",
-  //       zone: "Zone B",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // salmon
-  //   Device(
-  //       name: "Salmon",
-  //       zone: "Zone A",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // tuna
-  //   Device(
-  //       name: "Tuna",
-  //       zone: "Zone B",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // salmon
-  //   Device(
-  //       name: "Salmon",
-  //       zone: "Zone A",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // tuna
-  //   Device(
-  //       name: "Tuna",
-  //       zone: "Zone B",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // salmon
-  //   Device(
-  //       name: "Salmon",
-  //       zone: "Zone A",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // tuna
-  //   Device(
-  //       name: "Tuna",
-  //       zone: "Zone B",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // salmon
-  //   Device(
-  //       name: "Salmon",
-  //       zone: "Zone A",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  //   // tuna
-  //   Device(
-  //       name: "Tuna",
-  //       zone: "Zone B",
-  //       imagePath: "lib/images/home/watering-plants(2).png",
-  //       date: DateTime.now(),
-  //       barometricPressure: 70.0,
-  //       temperature: 37.0,
-  //       humidity: 60.0,
-  //       tvoc: 87,
-  //       co2: 25    
-  //   ),
-  // ];
-
-
-  // navigate to device details page
-  void navigateDetailsPage(int index) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => DeviceDetailsPage(
-          device: deviceList[index],
-        ),
-      ),
-    );
+  void addDevice() {
+    // Navigator.pushNamed(context, "/adddevicepage");
+    Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const AddDevicePage();
+                  },
+                  fullscreenDialog: true));
   }
+
+
+  // navigate to device details page****************************************************
+  // void navigateDetailsPage(int index) {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: (context) => DeviceDetailsPage(
+  //         device: deviceList[index],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -311,7 +148,7 @@ class _DevicePageState extends State<DevicePage> {
                 // Add device
                 MyButton(
                   text: "Add",
-                  onTap: () {},
+                  onTap: addDevice
                 ),
               ],
             ),
@@ -331,15 +168,9 @@ class _DevicePageState extends State<DevicePage> {
             //       );
             //     }
             //   ),
-            Expanded(
-                child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: deviceList.length,
-              itemBuilder: (context, index) => DeviceTile(
-                device: deviceList[index],
-                onTap: () => navigateDetailsPage(index),
-              ),
-            )),
+            
+            Expanded(child: ListView(children: [ DeviceTile()],))
+            
           ],
         ),
         drawer: Drawer(
