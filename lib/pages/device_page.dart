@@ -16,16 +16,19 @@ class DevicePage extends StatefulWidget {
 }
 
 class _DevicePageState extends State<DevicePage> {
-
   void addDevice() {
     // Navigator.pushNamed(context, "/adddevicepage");
     Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return const AddDevicePage();
-                  },
-                  fullscreenDialog: true));
+        builder: (BuildContext context) {
+          return const AddDevicePage();
+        },
+        fullscreenDialog: true));
   }
 
+    void goToDeviceDetail() {
+    Navigator.pushNamed(context, "/devicedetailpage");
+   
+  }
 
   // navigate to device details page****************************************************
   // void navigateDetailsPage(int index) {
@@ -146,10 +149,7 @@ class _DevicePageState extends State<DevicePage> {
                 ),
 
                 // Add device
-                MyButton(
-                  text: "Add",
-                  onTap: addDevice
-                ),
+                MyButton(text: "Add", onTap: addDevice),
               ],
             ),
 
@@ -168,9 +168,11 @@ class _DevicePageState extends State<DevicePage> {
             //       );
             //     }
             //   ),
-            
-            Expanded(child: ListView(children: [ DeviceTile()],))
-            
+
+            Expanded(
+                child: ListView(
+              children: [DeviceTile()],
+            ))
           ],
         ),
         drawer: Drawer(

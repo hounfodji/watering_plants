@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:watering_plants/firebase_options.dart';
 import 'package:watering_plants/pages/add_device.dart';
+import 'package:watering_plants/pages/device_details_page.dart';
 import 'package:watering_plants/pages/device_page.dart';
 import 'package:watering_plants/pages/history_page.dart';
 import 'package:watering_plants/pages/intro_page.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/schedulepage' : (context) => const SchedulePage(),
         '/historypage' : (context) => const HistoryPage(),
         '/adddevicepage' : (context) => const AddDevicePage(),
+        // '/devicedetailpage' : (context) => const DeviceDetailsPage(),
       },
     );
   }
