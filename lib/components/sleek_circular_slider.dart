@@ -51,6 +51,7 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
         size: 120,
         customWidths: CustomSliderWidths(
           progressBarWidth: 5,
+          
         ),
         customColors: CustomSliderColors(
           trackColor: widget.trackColor,
@@ -68,12 +69,6 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
         ),
       ),
       initialValue: _value,
-      onChange: (double value) {
-        setState(() {
-          _value = value;
-          widget.onChange(value); // Notify caller of value change
-        });
-      },
       min: _min,
       max: _max,
     );
