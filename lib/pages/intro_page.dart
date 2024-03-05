@@ -58,7 +58,7 @@ class IntroPage extends StatelessWidget {
               text: "Get Started",
               onTap: () {
                 // go to list device page
-                Navigator.pushNamed(context, "/devicepage");
+                Navigator.pushNamed(context, "/auth_page");
               },
             )
           ],

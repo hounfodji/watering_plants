@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:watering_plants/auth/auth.dart';
+import 'package:watering_plants/auth/login_or_register.dart';
 import 'package:watering_plants/firebase_options.dart';
 import 'package:watering_plants/pages/add_device.dart';
 import 'package:watering_plants/pages/device_details_page.dart';
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: IntroPage(),
       routes: {
+        "/login_register_page": (context) => LoginOrRegister(),
+        "/auth_page": (context) => AuthPage(),
         '/intropage' : (context) => const IntroPage(),
         '/devicepage' : (context) => const DevicePage(),
         '/schedulepage' : (context) => const SchedulePage(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:watering_plants/components/button.dart';
 import 'package:watering_plants/components/device_tile.dart';
+import 'package:watering_plants/components/my_drawer.dart';
 import 'package:watering_plants/models/device.dart';
 import 'package:watering_plants/models/device_list.dart';
 import 'package:watering_plants/pages/add_device.dart';
@@ -175,41 +176,6 @@ class _DevicePageState extends State<DevicePage> {
             ))
           ],
         ),
-        drawer: Drawer(
-          backgroundColor: Colors.grey[100],
-          child: ListView(children: [
-            ListTile(
-              leading: const Icon(Icons.email),
-              title: const Text("My Email"),
-              onTap: () {
-                // go to list device page
-                Navigator.pushNamed(context, "/devicepage");
-              },
-            ),
-
-            // const Divider(
-            //   height: 1,
-            //   color: Colors.grey,
-            // ),
-
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text("Settings"),
-              onTap: () {
-                // go to list device page
-                Navigator.pushNamed(context, "/devicepage");
-              },
-            ),
-
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text("Info"),
-              onTap: () {
-                // go to list device page
-                Navigator.pushNamed(context, "/devicepage");
-              },
-            ),
-          ]),
-        ));
+        drawer: MyDrawer());
   }
 }
