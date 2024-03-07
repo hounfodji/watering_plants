@@ -153,6 +153,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.5"
+  firebase_database:
+    dependency: "direct main"
+    description:
+      name: firebase_database
+      sha256: da28ae4aa9345d41b6e5b912c0752d141c31c8f0ff6048974c39955bcf4bcfd7
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.4.8"
+  firebase_database_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_database_platform_interface
+      sha256: "9093c79ac524a86b0b74bced74331d28de1e72653d9bbee9aa272361b1275109"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.5+24"
+  firebase_database_web:
+    dependency: transitive
+    description:
+      name: firebase_database_web
+      sha256: "95bf837ab437ffe21337303b254c122c3c0bc8f0da06356d922a5b3fd78a8b47"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.3+24"
   flutter:
     dependency: "direct main"
     description: flutter

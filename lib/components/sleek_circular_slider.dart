@@ -50,13 +50,15 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
       appearance: CircularSliderAppearance(
         size: 120,
         customWidths: CustomSliderWidths(
+          trackWidth: 5,
           progressBarWidth: 5,
           
         ),
         customColors: CustomSliderColors(
           trackColor: widget.trackColor,
           progressBarColors: widget.progressBarColors,
-          shadowMaxOpacity: widget.shadowMaxOpacity,
+          hideShadow: true,
+          // shadowMaxOpacity: widget.shadowMaxOpacity,
         ),
         infoProperties: InfoProperties(
           topLabelText: widget.topLabelText,
