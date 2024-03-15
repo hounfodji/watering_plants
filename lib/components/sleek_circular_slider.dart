@@ -48,7 +48,7 @@ class _MySleekCircularSliderState extends State<MySleekCircularSlider> {
   Widget build(BuildContext context) {
     return SleekCircularSlider(
       appearance: CircularSliderAppearance(
-        size: 120,
+        size: 100,
         customWidths: CustomSliderWidths(
           trackWidth: 5,
           progressBarWidth: 5,

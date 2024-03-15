@@ -4,6 +4,7 @@ import 'package:watering_plants/auth/auth.dart';
 import 'package:watering_plants/auth/login_or_register.dart';
 import 'package:watering_plants/firebase_options.dart';
 import 'package:watering_plants/pages/add_device.dart';
+import 'package:watering_plants/pages/add_schedule_page.dart';
 import 'package:watering_plants/pages/device_details_page.dart';
 import 'package:watering_plants/pages/device_page.dart';
 import 'package:watering_plants/pages/history_page.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/schedulepage' : (context) => const SchedulePage(),
         '/historypage' : (context) => const HistoryPage(),
         '/adddevicepage' : (context) => const AddDevicePage(),
+        '/addschedulepage' : (context) => const AddSchedulePage(),
         // '/devicedetailpage' : (context) => const DeviceDetailsPage(),
       },
     );

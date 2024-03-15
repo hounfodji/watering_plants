@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:watering_plants/models/device.dart';
@@ -19,6 +21,22 @@ class _DeviceTileState extends State<DeviceTile> {
   final Stream<QuerySnapshot> _deviceStream =
       FirebaseFirestore.instance.collection('device').snapshots();
 
+    DatabaseReference _databaseReferenceDeviceInfos =
+      FirebaseDatabase.instance.ref();
+
+  final User? currentUser = FirebaseAuth.instance.currentUser;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _databaseReferenceDeviceInfos = _databaseReferenceDeviceInfos
+        .child('UsersData')
+        .child(currentUser!.uid)
+        .child('devices');
+
+  }
+  
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -79,7 +97,7 @@ class _DeviceTileState extends State<DeviceTile> {
                           children: [
                             //name
                             Text(
-                              device["name"],
+                              device["pompe"],
                               style: GoogleFonts.dmSerifDisplay(fontSize: 18),
                             ),
 
@@ -89,7 +107,7 @@ class _DeviceTileState extends State<DeviceTile> {
 
                             // _price
                             Text(
-                              device["zone"],
+                              device["timestamp"],
                               style: TextStyle(color: Colors.grey[700]),
                             ),
                           ],

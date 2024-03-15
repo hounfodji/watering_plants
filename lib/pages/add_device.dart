@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:watering_plants/models/device.dart';
 import 'package:watering_plants/theme/colors.dart';
 
 class AddDevicePage extends StatefulWidget {
@@ -112,14 +113,42 @@ class _AddDevicePageState extends State<AddDevicePage> {
                     backgroundColor: secondaryColor),
                 onPressed: () {
                   databaseReferenceDeviceInfos.set({
+                   
                     "name": nameController.text,
                     "zone": zoneController.text,
                     "timestamps" : dTime,
-                    "tvoc": 0,
-                    "barometricPressure": 0,
-                    "co2": 0,
-                    "temperature": 0,
-                    "humidity": 0,
+                    "deviceStatut": false,
+                    "tvoc": 800.22,
+                    "barometricPressure": 1000.22,
+                    "co2": 1002.55,
+                    "temperature": 20.34,
+                    "humidity": 50.2,
+                  });
+
+                    FirebaseFirestore.instance.collection("device").add({
+                    "name": nameController.text,
+                    "zone": zoneController.text,
+                    "timestamps" : dTime,
+                    "tvoc": 800.22,
+                    "barometricPressure": 1000.22,
+                    "co2": 1002.55,
+                    "temperature": 20.34,
+                    "humidity": 50.2,
+                    "deviceStatut": false,
+                    "minMaxValue": {
+                      "tvoc": [405, 1340],
+                      "barometricPressure": [142, 1017],
+                      "co2": [812, 2200],
+                      "temperature": [0, 40],
+                      "humidity": [0, 100]
+                    },
+                    "unite": {
+                      "tvoc": "ppm",
+                      "barometricPressure": "ppm",
+                      "co2": "ppm",
+                      "temperature": "°C",
+                      "humidity": "%H"
+                    }
                   });
 
                   Navigator.pop(context);
