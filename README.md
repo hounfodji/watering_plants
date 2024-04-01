@@ -53,5 +53,4 @@ Run
 ### Demo
 [![Watch the video](https://github.com/hounfodji/watering_plants/blob/main/watering.png)](https://youtu.be/U8s6DU4g6RQ)
 
-### Screenshots
-![image](https://github.com/hounfodji/watering_plants/blob/main/watering.png?raw=true)
+
