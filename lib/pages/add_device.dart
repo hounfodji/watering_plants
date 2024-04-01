@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:watering_plants/models/device.dart';
 import 'package:watering_plants/theme/colors.dart';
 
 class AddDevicePage extends StatefulWidget {
@@ -17,6 +20,16 @@ class _AddDevicePageState extends State<AddDevicePage> {
 
   @override
   Widget build(BuildContext context) {
+    var dTime = DateTime.now().millisecondsSinceEpoch.toString();
+
+    // final ref = fb.ref().child('todos/$k');
+    final User? currentUser = FirebaseAuth.instance.currentUser;
+    DatabaseReference databaseReferenceDeviceInfos = FirebaseDatabase.instance
+        .ref()
+        .child('UsersData')
+        .child(currentUser!.uid)
+        .child("devices");
+
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
@@ -98,17 +111,32 @@ class _AddDevicePageState extends State<AddDevicePage> {
                     minimumSize: const Size.fromHeight(50),
                     backgroundColor: secondaryColor),
                 onPressed: () {
-                  FirebaseFirestore.instance.collection("device").add({
+                  databaseReferenceDeviceInfos.child(nameController.text).update({
+                   
                     "name": nameController.text,
                     "zone": zoneController.text,
-                    "tvoc": 0,
-                    "barometricPressure": 0,
-                    "co2": 0,
-                    "temperature": 0,
-                    "humidity": 0,
-                    "deviceStatut": false,
+                    // "timestamps" : dTime,
+                    // "deviceStatut": false,
+                    // "tvoc": 800.22,
+                    // "barometricPressure": 1000.22,
+                    // "co2": 1002.55,
+                    // "temperature": 20.34,
+                    // "humidity": 50.2,
+                  });
+
+                    FirebaseFirestore.instance.collection("device").doc(nameController.text).set({
+                    "name": nameController.text,
+                    "zone": zoneController.text,
+                    "timestamps" : dTime,
+                    "schedule" : {},
+                    // "tvoc": 800.22,
+                    // "barometricPressure": 1000.22,
+                    // "co2": 1002.55,
+                    // "temperature": 20.34,
+                    // "humidity": 50.2,
+                    // "deviceStatut": false,
                     "minMaxValue": {
-                      "tvoc": [405, 1340],
+                      "tvoc": [0, 1340],
                       "barometricPressure": [142, 1017],
                       "co2": [812, 2200],
                       "temperature": [0, 40],

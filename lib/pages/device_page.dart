@@ -17,6 +17,10 @@ class DevicePage extends StatefulWidget {
 }
 
 class _DevicePageState extends State<DevicePage> {
+
+  final searchFilterController = TextEditingController();
+  
+
   void addDevice() {
     // Navigator.pushNamed(context, "/adddevicepage");
     Navigator.of(context).push(MaterialPageRoute(
@@ -55,7 +59,7 @@ class _DevicePageState extends State<DevicePage> {
           //   color: Colors.grey[900],
           // ),
           title: Text(
-            "Cotonou",
+            "GrowGreen",
             style: TextStyle(
               color: Colors.grey[900],
               fontSize: 20,
@@ -66,69 +70,77 @@ class _DevicePageState extends State<DevicePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // promo banner
-            Container(
-              decoration: BoxDecoration(
-                  color: primaryColor, borderRadius: BorderRadius.circular(20)),
-              margin: const EdgeInsets.symmetric(
-                horizontal: 25,
-              ),
-              padding: EdgeInsets.symmetric(vertical: 25, horizontal: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // promo message
-                      Text("Water needed at zone A",
-                          style: GoogleFonts.dmSerifDisplay(
-                            fontSize: 15,
-                            color: Colors.white,
-                          )),
+            Column(children: [
+            //   Container(
+            //   decoration: BoxDecoration(
+            //       color: primaryColor, borderRadius: BorderRadius.circular(20)),
+            //   margin: const EdgeInsets.symmetric(
+            //     horizontal: 25,
+            //   ),
+            //   padding: EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+              
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: [
+            //       Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           // promo message
+            //           Text("Water needed at zone A",
+            //               style: GoogleFonts.dmSerifDisplay(
+            //                 fontSize: 15,
+            //                 color: Colors.white,
+            //               )),
 
-                      const SizedBox(
-                        height: 20,
-                      ),
+            //           const SizedBox(
+            //             height: 20,
+            //           ),
 
-                      // watering button
-                      MyButton(
-                        text: "Watering",
-                        onTap: () {},
-                      )
-                    ],
-                  ),
+            //           // watering button
+            //           MyButton(
+            //             text: "Watering",
+            //             onTap: () {},
+            //           )
+            //         ],
+            //       ),
 
-                  // Image
-                  Image.asset(
-                    "lib/images/home/watering.png",
-                    height: 90,
-                  )
-                ],
-              ),
-            ),
+            //       // Image
+            //       Image.asset(
+            //         "lib/images/home/watering.png",
+            //         height: 90,
+            //       )
+            //     ],
+            //   ),
+            // ),
 
             const SizedBox(
               height: 25,
             ),
 
             // search bar
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                        ),
-                        borderRadius: BorderRadius.circular(20)),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                        ),
-                        borderRadius: BorderRadius.circular(20)),
-                    hintText: "Search device.."),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 25),
+            //   child: TextField(
+            //     controller: searchFilterController,
+            //     decoration: InputDecoration(
+            //         focusedBorder: OutlineInputBorder(
+            //             borderSide: BorderSide(
+            //               color: Colors.white,
+            //             ),
+            //             borderRadius: BorderRadius.circular(20)),
+            //         enabledBorder: OutlineInputBorder(
+            //             borderSide: BorderSide(
+            //               color: Colors.white,
+            //             ),
+            //             borderRadius: BorderRadius.circular(20)),
+            //         hintText: "Search device.."),
+            //         onChanged: (value) {
+            //           setState(() {
+                        
+            //           });
+            //         },
+            //   ),
+            // ),
 
             const SizedBox(
               height: 25,
@@ -156,26 +168,21 @@ class _DevicePageState extends State<DevicePage> {
 
             // button to add a device
 
+            ],),
             const SizedBox(
               height: 25,
             ),
 
-            //   ListView.builder(
-            //     itemCount: 50,
-            //     itemBuilder: (context, id) {
-            //       return ListTile(
-            //         leading: Icon(Icons.add_box),
-            //         title: Text("Item $id"),
-            //       );
-            //     }
-            //   ),
 
             Expanded(
+              
                 child: ListView(
               children: [DeviceTile()],
-            ))
+            )
+            )
           ],
         ),
+        
         drawer: MyDrawer());
   }
 }

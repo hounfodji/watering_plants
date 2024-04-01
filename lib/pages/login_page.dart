@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:watering_plants/components/button.dart';
 import 'package:watering_plants/components/my_textfield.dart';
 import 'package:watering_plants/helper/helper_functions.dart';
+import 'package:watering_plants/theme/colors.dart';
 
 class LoginPage extends StatefulWidget {
 
@@ -56,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               Icon(
                 Icons.person,
                 size: 80,
-                color: Theme.of(context).colorScheme.inversePrimary,
+                color: secondaryColor,
               ),
               const SizedBox(
                 height: 25,
@@ -64,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
 
               // app name
               Text(
-                "M I N I M A L",
+                "GrowGreen",
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(

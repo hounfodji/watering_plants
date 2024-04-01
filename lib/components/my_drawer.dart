@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:watering_plants/theme/colors.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -19,7 +20,7 @@ class MyDrawer extends StatelessWidget {
           Column(
             children: [
               // drawer header
-          DrawerHeader(child: Icon(Icons.favorite, color: Theme.of(context).colorScheme.inversePrimary,)),
+          DrawerHeader(child: Icon(Icons.favorite, color: secondaryColor,)),
 
           const SizedBox(height: 25,),
           // home tile
@@ -53,22 +54,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
 
-          // users tile
-          Padding(
-            padding: const EdgeInsets.only(left: 25),
-            child: ListTile(
-              leading: Icon(Icons.group,),
-              title: Text("U S E R S"),  
-              onTap: () {
-                // pop drawer
-                Navigator.pop(context);
-
-                // navigate to profile page
-                Navigator.pushNamed(context, "/users_page");
-              },
-          
-            ),
-          ),
+         
             ],
           ),
 

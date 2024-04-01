@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:watering_plants/components/button.dart';
 import 'package:watering_plants/components/my_textfield.dart';
 import 'package:watering_plants/helper/helper_functions.dart';
+import 'package:watering_plants/theme/colors.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
@@ -91,7 +92,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Icon(
                 Icons.person,
                 size: 80,
-                color: Theme.of(context).colorScheme.inversePrimary,
+                color: secondaryColor,
               ),
               const SizedBox(
                 height: 25,
@@ -99,7 +100,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               // app name
               Text(
-                "M I N I M A L",
+                "GrowGreen",
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(
