@@ -40,28 +40,40 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
         .ref()
         .child('UsersData')
         .child(currentUser!.uid)
-        .child("readings")
+        .child("devices")
         .child(dTime);
 //         print("bon");
 // print(deviceKeyValue);
 
-          updateDeviceStatut(String deviceKey, String dateText, String timeText) async {
-final User? currentUser = FirebaseAuth.instance.currentUser;
-var dTime = DateTime.now().millisecondsSinceEpoch.toString();
-    DatabaseReference databaseReferenceDeviceInfos =
-        FirebaseDatabase.instance.ref().child('UsersData')
-        .child(currentUser!.uid)
-        .child('readings/$deviceKey/schedule');
+    updateDeviceStatut(
+        String deviceKey, String dateText, String timeText) async {
+      final User? currentUser = FirebaseAuth.instance.currentUser;
+      var dTime = DateTime.now().millisecondsSinceEpoch.toString();
+      DatabaseReference databaseReferenceDeviceInfos = FirebaseDatabase.instance
+          .ref()
+          .child('UsersData')
+          .child(currentUser!.uid)
+          .child('devices/$deviceKey/schedule');
 
 // Only update the name, leave the age and address!
-    await databaseReferenceDeviceInfos.update({
-      dTime : {
-        "wateringDate" : dateText,
-        "wateringTime" : timeText,
-      }
-    });
+      await databaseReferenceDeviceInfos.update({
+        dTime: {
+          "wateringDate": dateText,
+          "wateringTime": timeText,
+        }
+      });
+
+      // FirebaseFirestore.instance.collection("device").doc(deviceKey).({
     
-  }
+      //     "schedule" : {
+      //       dTime: {
+      //       "wateringDate": dateText,
+      //       "wateringTime": timeText,
+      //     }
+      //     }
+        
+      // });
+    }
 
     return Scaffold(
         backgroundColor: primaryColor,
@@ -139,22 +151,22 @@ var dTime = DateTime.now().millisecondsSinceEpoch.toString();
                     },
                   ),
                   const SizedBox(height: 20),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    minimumSize: const Size.fromHeight(50),
-                    backgroundColor: secondaryColor),
-                onPressed: () {
-                  updateDeviceStatut(deviceKeyValue, dateinput.text, timeinput.text);
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50),
+                          backgroundColor: secondaryColor),
+                      onPressed: () {
+                        updateDeviceStatut(
+                            deviceKeyValue, dateinput.text, timeinput.text);
 
-                    
-
-                  Navigator.pop(context);
-                },
-                child: const Text("Add"))
+                        Navigator.pop(context);
+                      },
+                      child: const Text(
+                        "Add",
+                        style: TextStyle(color: Colors.white),
+                      ))
                 ],
               ),
-            )
-            )
-            );
+            )));
   }
 }

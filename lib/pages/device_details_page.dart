@@ -36,6 +36,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
 
   final deviceKey = "";
   var dTime = DateTime.now().millisecondsSinceEpoch.toString();
+  final deviceStatut = false;
   TextEditingController deviceKeyController = TextEditingController();
 
   @override
@@ -50,8 +51,9 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
         .child('UsersData')
         .child(currentUser!.uid)
         .child('devices');
-    print(_databaseReferenceDeviceInfos.key);
+    // print(_databaseReferenceDeviceInfos);
   }
+
 
 
 
@@ -62,7 +64,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
     DatabaseReference databaseReferenceDeviceInfos =
         FirebaseDatabase.instance.ref().child('UsersData')
         .child(currentUser!.uid)
-        .child('readings/$deviceKey');
+        .child('devices/$deviceKey');
         final dStat = !deviceStatut;
 
 // Only update the name, leave the age and address!
@@ -152,18 +154,16 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                       query: _databaseReferenceDeviceInfos,
                       shrinkWrap: true,
                       itemBuilder: (context, snapshot, animation, index) {
-                        print(snapshot.child("pompe").value);
+                       print(snapshot.value.toString());
                         // print(widget.docId);
                         // print(snapshot.child("name").value);
                         // print(
                         //     deviceData["name"] == snapshot.child("name").value);
                         // snapshot.child(widget.docId).child("minMaxValue");
 
-                        return 
-                        
-                        // (deviceData["name"] ==
-                        //         snapshot.child("name").value)
-                        //     ? 
+                        return (deviceData["name"] ==
+                                snapshot.child("name").value)
+                            ? 
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
@@ -211,10 +211,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                                       .toDouble(),
                                                   initialValue:
                                                       // deviceData["barometricPressure"].toDouble(),
-                                                      snapshot
-                                                          .child(
-                                                              "barometricPressure")
-                                                          .value as double,
+                                                       double.parse(snapshot.child("pressure").value.toString()),
                                                   unit: deviceData["unite"]
                                                       ["barometricPressure"],
                                                   trackColor: Colors.white,
@@ -282,9 +279,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                                       .toDouble(),
                                                   initialValue:
                                                       // deviceData["temperature"].toDouble(),
-                                                      snapshot
-                                                          .child("temperature")
-                                                          .value as double,
+                                                      double.parse(snapshot.child("temperature").value.toString()),
                                                   unit: deviceData["unite"]
                                                       ["temperature"],
                                                   trackColor: Colors.white,
@@ -325,7 +320,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                       ),
 
                                       const SizedBox(
-                                        height: 25,
+                                        height: 40,
                                       ),
 
                                       // humidity and tvoc container
@@ -365,9 +360,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                                       .toDouble(),
                                                   initialValue:
                                                       // deviceData["humidity"].toDouble(),
-                                                      snapshot
-                                                          .child("humidity")
-                                                          .value as double,
+                                                      double.parse(snapshot.child("humidity").value.toString()),
                                                   unit: deviceData["unite"]
                                                       ["humidity"],
                                                   trackColor: Colors.white,
@@ -432,8 +425,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                                     .toDouble(),
                                                 initialValue:
                                                     //  deviceData["tvoc"].toDouble(),
-                                                    snapshot.child("tvoc").value
-                                                        as double,
+                                                    double.parse(snapshot.child("winSpeedr").value.toString()),
                                                 unit: deviceData["unite"]
                                                     ["tvoc"],
                                                 trackColor: Colors.white,
@@ -468,75 +460,14 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                             ],
                                           ),
 
-                                            // co2
-                                            // Column(
-                                            //   crossAxisAlignment:
-                                            //       CrossAxisAlignment.center,
-                                            //   children: [
-                                            //     // device name
-                                            //     Text(
-                                            //       "CO2",
-                                            //       style: TextStyle(
-                                            //           fontWeight:
-                                            //               FontWeight.bold,
-                                            //           color: Colors.white),
-                                            //     ),
-
-                                            //     const SizedBox(
-                                            //       height: 10,
-                                            //     ),
-
-                                            //     // device zone
-                                            //     MySleekCircularSlider(
-                                            //       min: deviceData["minMaxValue"]
-                                            //               ["co2"]![0]
-                                            //           .toDouble(),
-                                            //       max: deviceData["minMaxValue"]
-                                            //               ["co2"]![1]
-                                            //           .toDouble(),
-                                            //       initialValue:
-                                            //           // deviceData["co2"].toDouble(),
-                                            //           snapshot
-                                            //               .child("co2")
-                                            //               .value as double,
-                                            //       unit: deviceData["unite"]
-                                            //           ["co2"],
-                                            //       trackColor: Colors.white,
-                                            //       progressBarColors: [
-                                            //         Color.fromARGB(
-                                            //             255, 246, 229, 79),
-                                            //         Color.fromARGB(
-                                            //             255, 248, 228, 49)
-                                            //       ],
-                                            //       // topLabelText: 'running...',
-                                            //       onChange: (value) {},
-                                            //     ),
-
-                                            //     Container(
-                                            //       width: 120,
-                                            //       child: Row(
-                                            //         mainAxisAlignment:
-                                            //             MainAxisAlignment
-                                            //                 .spaceBetween,
-                                            //         children: [
-                                            //           Text(deviceData[
-                                            //                       "minMaxValue"]
-                                            //                   ["co2"]![0]
-                                            //               .toString()),
-                                            //           Text(deviceData[
-                                            //                       "minMaxValue"]
-                                            //                   ["co2"]![1]
-                                            //               .toString())
-                                            //         ],
-                                            //       ),
-                                            //     )
-                                            //   ],
-                                            // ),
+                                         
                                           ],
                                         ),
                                       ),
                                     ],
                                   ),
+
+                                  const SizedBox(height: 70,),
 
                                   // switch and buttons for schedule and history
                                   Container(
@@ -588,7 +519,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                               activeColor: Colors.white,
                                               activeTrackColor: secondaryColor,
                                               // value: deviceData["deviceStatut"],
-                                              value: snapshot.child("deviceStatut").value as bool,
+                                              value:  bool.parse(snapshot.child("deviceStatut").value.toString()),
                                               // snapshot
                                               //     .child("deviceStatut")
                                               //     .value as bool,
@@ -606,7 +537,7 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                                 //     deviceData["deviceStatut"] =
                                                 //         newValue;
                                                 //   });
-                                                  updateDeviceStatut(snapshot.key as String, snapshot.child("deviceStatut").value as bool);
+                                                  updateDeviceStatut(snapshot.key as String, bool.parse(snapshot.child("deviceStatut").value.toString()));
 
                                                   print(snapshot.child("deviceStatut").value as bool);
     //                                               if(snapshot.child("deviceStatut").value as bool) {
@@ -661,10 +592,9 @@ class _DeviceDetailsPageState extends State<DeviceDetailsPage> {
                                 
                               )
                               
-                            // : SizedBox(
-                            //     height: 0.00000000000000000000001,
-                            //   )
-                              ;
+                            : SizedBox(
+                                height: 0.00000000000000000000001,
+                              );
                       }),
                 ),
               ],

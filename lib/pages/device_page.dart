@@ -59,7 +59,7 @@ class _DevicePageState extends State<DevicePage> {
           //   color: Colors.grey[900],
           // ),
           title: Text(
-            "Cotonou",
+            "GrowGreen",
             style: TextStyle(
               color: Colors.grey[900],
               fontSize: 20,

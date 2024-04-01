@@ -34,7 +34,7 @@ class _HistoryPageState extends State<HistoryPage> {
     _databaseReferenceDeviceInfos = _databaseReferenceDeviceInfos
         .child('UsersData')
         .child(currentUser!.uid)
-        .child('readings');
+        .child('devices');
     // print(_databaseReferenceDeviceInfos);
   }
 
@@ -44,17 +44,17 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     final deviceKey = ModalRoute.of(context)!.settings.arguments.toString();
-    // print(deviceKey); //{deviceKey: 1710231412877}
+    //  print(deviceKey); //{deviceKey: 1710231412877}
     final deviceKeyValue = deviceKey.replaceAll(RegExp("{|}|deviceKey: "), "");
     deviceKeyValue.trim();
     // print(deviceKeyValue); //1710231412877
 //     final deviceKeyValue = deviceKeyList.split(','); // [webfun,  subscribe}]
-// print(deviceKeyValue);
+print(deviceKeyValue);
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
         title: Text(
-          "Schedule",
+          "History",
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: primaryColor,
@@ -68,9 +68,10 @@ class _HistoryPageState extends State<HistoryPage> {
                 .ref()
                 .child('UsersData')
                 .child(currentUser!.uid)
-                .child('readings/${snapshot.key}')
+                .child('devices/${snapshot.key}')
                 .child("history");
-
+            print(snapshot.key);
+            print(snapshot.key == deviceKeyValue);
             return (snapshot.key == deviceKeyValue)
                 ? Container(
                     decoration: BoxDecoration(
@@ -90,7 +91,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                 itemBuilder:
                                     (context, snapshot, animation, index) {
                                   // print(snapshot.key);
-                                  // print(snapshot.value);
+                                  print(snapshot.value.toString());
                                   return GestureDetector(
                                     onTap: () {
                                       // Navigator.push(

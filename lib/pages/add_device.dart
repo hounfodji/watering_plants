@@ -28,8 +28,7 @@ class _AddDevicePageState extends State<AddDevicePage> {
         .ref()
         .child('UsersData')
         .child(currentUser!.uid)
-        .child("readings")
-        .child(dTime);
+        .child("devices");
 
     return Scaffold(
       backgroundColor: Colors.grey[300],
@@ -112,31 +111,32 @@ class _AddDevicePageState extends State<AddDevicePage> {
                     minimumSize: const Size.fromHeight(50),
                     backgroundColor: secondaryColor),
                 onPressed: () {
-                  databaseReferenceDeviceInfos.set({
+                  databaseReferenceDeviceInfos.child(nameController.text).update({
                    
                     "name": nameController.text,
                     "zone": zoneController.text,
-                    "timestamps" : dTime,
-                    "deviceStatut": false,
-                    "tvoc": 800.22,
-                    "barometricPressure": 1000.22,
-                    "co2": 1002.55,
-                    "temperature": 20.34,
-                    "humidity": 50.2,
+                    // "timestamps" : dTime,
+                    // "deviceStatut": false,
+                    // "tvoc": 800.22,
+                    // "barometricPressure": 1000.22,
+                    // "co2": 1002.55,
+                    // "temperature": 20.34,
+                    // "humidity": 50.2,
                   });
 
-                    FirebaseFirestore.instance.collection("device").add({
+                    FirebaseFirestore.instance.collection("device").doc(nameController.text).set({
                     "name": nameController.text,
                     "zone": zoneController.text,
                     "timestamps" : dTime,
-                    "tvoc": 800.22,
-                    "barometricPressure": 1000.22,
-                    "co2": 1002.55,
-                    "temperature": 20.34,
-                    "humidity": 50.2,
-                    "deviceStatut": false,
+                    "schedule" : {},
+                    // "tvoc": 800.22,
+                    // "barometricPressure": 1000.22,
+                    // "co2": 1002.55,
+                    // "temperature": 20.34,
+                    // "humidity": 50.2,
+                    // "deviceStatut": false,
                     "minMaxValue": {
-                      "tvoc": [405, 1340],
+                      "tvoc": [0, 1340],
                       "barometricPressure": [142, 1017],
                       "co2": [812, 2200],
                       "temperature": [0, 40],

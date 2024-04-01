@@ -34,7 +34,7 @@ class _SchedulePageState extends State<SchedulePage> {
     _databaseReferenceDeviceInfos = _databaseReferenceDeviceInfos
         .child('UsersData')
         .child(currentUser!.uid)
-        .child('readings');
+        .child('devices');
     // print(_databaseReferenceDeviceInfos);
   }
 
@@ -82,7 +82,7 @@ class _SchedulePageState extends State<SchedulePage> {
                 .ref()
                 .child('UsersData')
                 .child(currentUser!.uid)
-                .child('readings/${snapshot.key}')
+                .child('devices/${snapshot.key}')
                 .child("schedule");
 
             return (snapshot.key == deviceKeyValue)

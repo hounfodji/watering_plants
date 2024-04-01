@@ -97,7 +97,7 @@ class _DeviceTileState extends State<DeviceTile> {
                           children: [
                             //name
                             Text(
-                              device["pompe"],
+                              device["name"],
                               style: GoogleFonts.dmSerifDisplay(fontSize: 18),
                             ),
 
@@ -107,7 +107,7 @@ class _DeviceTileState extends State<DeviceTile> {
 
                             // _price
                             Text(
-                              device["timestamp"],
+                              device["zone"],
                               style: TextStyle(color: Colors.grey[700]),
                             ),
                           ],
