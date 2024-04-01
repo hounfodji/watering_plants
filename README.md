@@ -33,21 +33,25 @@ Avantages:
 Cette application est un outil pratique pour les agriculteurs et les jardiniers qui souhaitent gérer l'irrigation de leurs cultures de manière efficace et efficiente.
 
 ## Execution
-### Clone the project
-git clone https://github.com/hounfodji/watering_plants
+
+Clone the project:
+
+    git clone https://github.com/hounfodji/watering_plants
 
 cd watering_plants
 
-### Install dependancies
-flutter pub get
+Install dependancies:
+
+    flutter pub get
 
 ### Configure firebase database
 
-### Run
-flutter run
+Run
+
+    flutter run
 
 ### Demo
-[![Watch the video](https://github.com/hounfodji/speech_to_text_text_to_speech_speech_to_speech/blob/main/images/execution/Screenshot%20from%202024-02-26%2022-29-20.png)](https://youtu.be/U8s6DU4g6RQ)
+[![Watch the video](https://github.com/hounfodji/watering_plants/blob/main/watering.png)](https://youtu.be/U8s6DU4g6RQ)
 
 ### Screenshots
-![image](https://github.com/hounfodji/speech_to_text_text_to_speech_speech_to_speech/blob/main/images/execution/Screenshot%20from%202024-02-26%2022-29-20.png?raw=true)
+![image](https://github.com/hounfodji/watering_plants/blob/main/watering.png?raw=true)
